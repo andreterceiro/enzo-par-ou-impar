@@ -11,11 +11,11 @@
             $(function() {
                 $("#botao-enviar").click(
                     function() {
-                        if (validarFormulario() == false) {
+                        if (validarFormulario() === false) {
                             alert("Você deve selecionar par ou ímpar e inserir seu número.")
                             return false;
-                        } 
-                
+                        }
+
                         let numeroAleatorio = Math.random();
                         let numeroAleatorioVezes10 = numeroAleatorio * 10;
                         let numeroAleatorioEscolhido = Math.floor(numeroAleatorioVezes10);
@@ -24,7 +24,7 @@
 
                         let soma = numeroAleatorioEscolhido + parseInt($("#escolha-jogador").val());
                         $("#resultado").text("O resultado foi " + soma);
-                        
+
                         if ((soma % 2 == 0) && ($("#par-ou-impar-par")[0].checked)) {
                             $("#pontuacao-voce").text(parseInt($("#pontuacao-voce").text()) + 1);
                         } else if ((soma % 2 == 1) && ($("#par-ou-impar-impar")[0].checked)) {
@@ -37,7 +37,7 @@
             });
 
             function validarFormulario() {
-                return ! (($(".par-ou-impar").val() != "par" && $(".par-ou-impar").val != "ímpar") || isNaN(parseInt($("#escolha-jogador").val()))); 
+                return ! (($(".par-ou-impar").val() != "par" && $(".par-ou-impar").val != "impar") || isNaN(parseInt($("#escolha-jogador").val())));
             }
         </script>
     </head>
@@ -45,7 +45,7 @@
         Placar: <br />
         Você: <span id="pontuacao-voce" />0</span><br />
         Computador: <span id="pontuacao-computador" />0</span>
-        
+
         <hr />
 
         <div>Par ou impar?</div>
@@ -55,7 +55,7 @@
         </div>
 
         Escolha o seu número: <input type="text" name="escolha-jogador" id="escolha-jogador" />
-        <input type="button" name="botao-enviar" value="botao-enviar" id="botao-enviar" />
+        <input type="button" name="botao-enviar" value="Enviar" id="botao-enviar" />
 
         <hr />
         <div id="escolha-comuputador"></div>
